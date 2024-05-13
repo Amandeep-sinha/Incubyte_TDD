@@ -11,7 +11,10 @@ const StringCalculator = () => {
     if (numbersString === '') return 0;
 
     const delimiter = numbersString.startsWith('//') ? numbersString[2] : ',|\n';
-    const numbers = numbersString.split(new RegExp(`[${delimiter}]`));
+        const numbers = numbersString.split(new RegExp(`[${delimiter}]`));
+    if(numbersString.startsWith('//')){
+      numbers.shift();
+    }
 
     const negativeNumbers = numbers.filter(num => parseInt(num) < 0);
     if (negativeNumbers.length > 0) {
